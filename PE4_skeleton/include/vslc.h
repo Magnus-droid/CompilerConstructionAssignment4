@@ -18,5 +18,5 @@ extern char yytext[];
 
 extern node_t *root;
 
-void simplify_tree ( node_t **simplified, node_t *root );
+void simplify_tree ( node_t *node, node_t *parent );
 #endif

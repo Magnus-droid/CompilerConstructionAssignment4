@@ -1,104 +1,105 @@
+(4.1) Simplified node of type: GLOBAL with child of type: FUNCTION
+(4.2) Flattened node of type: PARAMETER_LIST with child of type: VARIABLE_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: BLOCK
+(4.1) Simplified node of type: STATEMENT with child of type: PRINT_STATEMENT
+(4.1) Simplified node of type: PRINT_ITEM with child of type: STRING_DATA
+(4.2) Merged children of node (type: PRINT_LIST) and other child of parent into parent node of type: PRINT_LIST
+(4.1) Simplified node of type: PRINT_ITEM with child of type: EXPRESSION
+(4.2) Merged children of node (type: PRINT_LIST) and other child of parent into parent node of type: PRINT_LIST
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: PRINT_ITEM with child of type: STRING_DATA
+(4.2) Merged children of node (type: PRINT_LIST) and other child of parent into parent node of type: PRINT_LIST
+(4.1) Simplified node of type: PRINT_ITEM with child of type: EXPRESSION
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.2) Merged children of node (type: EXPRESSION_LIST) and other child of parent into parent node of type: EXPRESSION_LIST
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Flattened node of type: ARGUMENT_LIST with child of type: EXPRESSION_LIST
+Changed PRINT_LIST to PRINT_STATEMENT
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: RETURN_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Merged children of node (type: GLOBAL_LIST) and other child of parent into parent node of type: GLOBAL_LIST
+(4.1) Simplified node of type: GLOBAL with child of type: FUNCTION
+(4.2) Merged children of node (type: VARIABLE_LIST) and other child of parent into parent node of type: VARIABLE_LIST
+(4.2) Flattened node of type: PARAMETER_LIST with child of type: VARIABLE_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: BLOCK
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: IF_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: STATEMENT with child of type: RETURN_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: STATEMENT with child of type: RETURN_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.2) Merged children of node (type: EXPRESSION_LIST) and other child of parent into parent node of type: EXPRESSION_LIST
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.2) Flattened node of type: ARGUMENT_LIST with child of type: EXPRESSION_LIST
  PROGRAM
  GLOBAL_LIST
-  GLOBAL_LIST
-   GLOBAL
-    FUNCTION
-     IDENTIFIER_DATA(newton)
-     PARAMETER_LIST
-      VARIABLE_LIST
+  FUNCTION
+   IDENTIFIER_DATA(newton)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(n)
+   BLOCK
+    STATEMENT_LIST
+     PRINT_STATEMENT
+      PRINT_STATEMENT
+       STRING_DATA("The square root of")
        IDENTIFIER_DATA(n)
-     STATEMENT
-      BLOCK
-       STATEMENT_LIST
-        STATEMENT_LIST
-         STATEMENT
-          PRINT_STATEMENT
-           PRINT_LIST
-            PRINT_LIST
-             PRINT_LIST
-              PRINT_LIST
-               PRINT_ITEM
-                STRING_DATA("The square root of")
-              PRINT_ITEM
-               EXPRESSION((null))
-                IDENTIFIER_DATA(n)
-             PRINT_ITEM
-              STRING_DATA("is")
-            PRINT_ITEM
-             EXPRESSION((null))
-              IDENTIFIER_DATA(improve)
-              ARGUMENT_LIST
-               EXPRESSION_LIST
-                EXPRESSION_LIST
-                 EXPRESSION((null))
-                  IDENTIFIER_DATA(n)
-                EXPRESSION((null))
-                 NUMBER_DATA(1)
-        STATEMENT
-         RETURN_STATEMENT
-          EXPRESSION((null))
-           NUMBER_DATA(0)
-  GLOBAL
-   FUNCTION
-    IDENTIFIER_DATA(improve)
-    PARAMETER_LIST
-     VARIABLE_LIST
+       STRING_DATA("is")
+       EXPRESSION((null))
+        IDENTIFIER_DATA(improve)
+        EXPRESSION_LIST
+         IDENTIFIER_DATA(n)
+         NUMBER_DATA(1)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)
+  FUNCTION
+   IDENTIFIER_DATA(improve)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(n)
+    IDENTIFIER_DATA(estimate)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
       VARIABLE_LIST
-       IDENTIFIER_DATA(n)
-      IDENTIFIER_DATA(estimate)
-    STATEMENT
-     BLOCK
-      DECLARATION_LIST
-       DECLARATION
-        VARIABLE_LIST
+       IDENTIFIER_DATA(next)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(next)
+      EXPRESSION(-)
+       IDENTIFIER_DATA(estimate)
+       EXPRESSION(/)
+        EXPRESSION(-)
+         EXPRESSION(*)
+          IDENTIFIER_DATA(estimate)
+          IDENTIFIER_DATA(estimate)
+         IDENTIFIER_DATA(n)
+        EXPRESSION(*)
+         NUMBER_DATA(2)
+         IDENTIFIER_DATA(estimate)
+     IF_STATEMENT
+      RELATION(=)
+       EXPRESSION(-)
+        IDENTIFIER_DATA(next)
+        IDENTIFIER_DATA(estimate)
+       NUMBER_DATA(0)
+      RETURN_STATEMENT
+       EXPRESSION(-)
+        IDENTIFIER_DATA(next)
+        NUMBER_DATA(1)
+      RETURN_STATEMENT
+       EXPRESSION((null))
+        IDENTIFIER_DATA(improve)
+        EXPRESSION_LIST
+         IDENTIFIER_DATA(n)
          IDENTIFIER_DATA(next)
-      STATEMENT_LIST
-       STATEMENT_LIST
-        STATEMENT
-         ASSIGNMENT_STATEMENT
-          IDENTIFIER_DATA(next)
-          EXPRESSION(-)
-           EXPRESSION((null))
-            IDENTIFIER_DATA(estimate)
-           EXPRESSION(/)
-            EXPRESSION(-)
-             EXPRESSION(*)
-              EXPRESSION((null))
-               IDENTIFIER_DATA(estimate)
-              EXPRESSION((null))
-               IDENTIFIER_DATA(estimate)
-             EXPRESSION((null))
-              IDENTIFIER_DATA(n)
-            EXPRESSION(*)
-             EXPRESSION((null))
-              NUMBER_DATA(2)
-             EXPRESSION((null))
-              IDENTIFIER_DATA(estimate)
-       STATEMENT
-        IF_STATEMENT
-         RELATION(=)
-          EXPRESSION(-)
-           EXPRESSION((null))
-            IDENTIFIER_DATA(next)
-           EXPRESSION((null))
-            IDENTIFIER_DATA(estimate)
-          EXPRESSION((null))
-           NUMBER_DATA(0)
-         STATEMENT
-          RETURN_STATEMENT
-           EXPRESSION(-)
-            EXPRESSION((null))
-             IDENTIFIER_DATA(next)
-            EXPRESSION((null))
-             NUMBER_DATA(1)
-         STATEMENT
-          RETURN_STATEMENT
-           EXPRESSION((null))
-            IDENTIFIER_DATA(improve)
-            ARGUMENT_LIST
-             EXPRESSION_LIST
-              EXPRESSION_LIST
-               EXPRESSION((null))
-                IDENTIFIER_DATA(n)
-              EXPRESSION((null))
-               IDENTIFIER_DATA(next)

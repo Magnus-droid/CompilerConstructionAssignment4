@@ -46,8 +46,8 @@ node_finalize ( node_t *discard )
 {
     if ( discard != NULL )
     {
-        free ( discard->data );
-        free ( discard->children );
+	free ( discard->data );
+	free ( discard->children );
         free ( discard );
     }
 }
@@ -63,65 +63,6 @@ destroy_subtree ( node_t *discard ){
     }
 }
 
-
-void
-simplify_tree ( node_t **simplified, node_t *root )
-{
-    *simplified = root;
-	if (!root) {
-		return;
-	}
-	simplify_node(
-}
-
-void
-simplify_node ( node_t *node)
-{
-	if ( node->data == NULL && !is_list_node(node) &&
-	     node->type != PROGRAM && node->type != BLOCK &&
-	     node->type != RETURN_STATEMENT && node->type != DECLARATION){
-		if ( node->n_children == 1){
-			node->data == node->children[0]->data;
-			node->children == node->children[0]->children;
-			node->n_children == node->children[0]->n_children;
-			node->type == node->children[0]->type;
-		}
-	}
-
-}
-
-
-void
-simplify_list( node_t *node, node_t *parent)
-{
-	if (is_list(node)){
-		if (is_list(node->children[0]) && node->n_children == 1) {
-			node->data = node->children[0]->data;
-			node->children = node->children[0]->children;
-			node->n_children = node->children[0]->n_children;
-			node->type = node->children[0]->type;
-
-		} else if (parent != NULL && is_list_node(node) && is_list_node(parent) && node->type == parent->type){
-			int child_count = node->n_children + 1;
-			node_t** children_list = (node_t **) malloc(child_count * sizeof(node_t *));
-			for (int i = 0; node->n_children; i++)  {
-				children_list[i] = node->children[i];
-			}
-			children_list[child_count - 1] = parent_node->children[1];
-			parent_node->children = children_list;
-			parent_node->n_children = child_count;
-		}
-	}
-}
-
-void
-print_list_to_print_statement(node_t *node)
-{
-	if (node->type == PRINT_LIST) {
-		node->type = PRINT_STATEMENT;
-	}
-}
-
 int
 is_list_node(node_t *node)
 {
@@ -133,4 +74,78 @@ is_list_node(node_t *node)
 		node->type == ARGUMENT_LIST ||
 		node->type == PARAMETER_LIST ||
 		node->type == DECLARATION_LIST);
+}
+
+
+
+void
+simplify_node ( node_t *node )
+{
+	if ( node->data == NULL && !is_list_node(node) &&
+	     node->type != PROGRAM && node->type != BLOCK &&
+	     node->type != RETURN_STATEMENT && node->type != DECLARATION){
+		if ( node->n_children == 1){
+			node_t *child = node->children[0];
+			printf("(4.1) Simplified node of type: %s with child of type: %s\n", node_string[node->type], node_string[child->type]);
+			node->data = child->data;
+			node->n_children = child->n_children;
+			node->children = child->children;
+			node->type = child->type;
+			free ( child );
+		}
+	}
+
+}
+
+void
+simplify_list( node_t *node, node_t *parent)
+{
+	if (is_list_node(node)){
+		if (is_list_node(node->children[0]) && node->n_children == 1) {
+			node_t *child = node->children[0];
+			printf("(4.2) Flattened node of type: %s with child of type: %s\n", node_string[node->type], node_string[child->type]);
+			node->data = child->data;
+			node->children = child->children;
+			node->n_children = child->n_children;
+			node->type = child->type;
+			free ( child );
+
+		} else if (parent != NULL && is_list_node(node) && is_list_node(parent) && node->type == parent->type){ //Hvis noden og parent noden begge er list-noder av samme typen
+			int child_count = node->n_children + 1;
+			printf("(4.2) Merged children of node (type: %s) and other child of parent into parent node of type: %s\n", node_string[node->type], node_string[parent->type]);
+			node_t** children_list = (node_t **) malloc(child_count * sizeof(node_t *));
+			for (int i = 0; i < node->n_children; i++)  {
+				children_list[i] = node->children[i];
+			}
+			children_list[child_count - 1] = parent->children[1];	//Leg til det andre barnet til parent i slutten av children_list
+			parent->children = children_list;			//Og sett children_list som nye children av parent
+			parent->n_children = child_count;			//Oppdater antall barn parent har
+			free ( node );
+		}
+	}
+}
+
+void
+print_list_to_print_statement(node_t *node)
+{
+	if (node->type == PRINT_LIST) {
+		node->type = PRINT_STATEMENT;
+		printf("Changed PRINT_LIST to PRINT_STATEMENT\n");
+	}
+}
+
+
+
+void
+simplify_tree ( node_t *node, node_t *parent)
+{
+	if (!node) {
+		return;
+	}
+	simplify_node( node );
+	for (int i = 0; i < node->n_children; i++) {
+		simplify_tree(node->children[i], node);
+	}
+	simplify_list(node, parent);
+	print_list_to_print_statement(node);
 }

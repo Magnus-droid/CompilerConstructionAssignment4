@@ -1,54 +1,54 @@
+(4.1) Simplified node of type: GLOBAL with child of type: FUNCTION
+(4.1) Simplified node of type: STATEMENT with child of type: BLOCK
+(4.2) Merged children of node (type: VARIABLE_LIST) and other child of parent into parent node of type: VARIABLE_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: RETURN_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
  PROGRAM
  GLOBAL_LIST
-  GLOBAL
-   FUNCTION
-    IDENTIFIER_DATA(unary_minus_precedence)
-    (nil)
-    STATEMENT
-     BLOCK
-      DECLARATION_LIST
-       DECLARATION
-        VARIABLE_LIST
-         VARIABLE_LIST
-          IDENTIFIER_DATA(a)
-         IDENTIFIER_DATA(b)
-      STATEMENT_LIST
-       STATEMENT_LIST
-        STATEMENT_LIST
-         STATEMENT_LIST
-          STATEMENT
-           ASSIGNMENT_STATEMENT
-            IDENTIFIER_DATA(a)
-            EXPRESSION(*)
-             EXPRESSION(-)
-              EXPRESSION((null))
-               NUMBER_DATA(1)
-             EXPRESSION((null))
-              NUMBER_DATA(2)
-         STATEMENT
-          ASSIGNMENT_STATEMENT
-           IDENTIFIER_DATA(b)
-           EXPRESSION(*)
-            EXPRESSION(-)
-             EXPRESSION((null))
-              NUMBER_DATA(1)
-            EXPRESSION((null))
-             NUMBER_DATA(2)
-        STATEMENT
-         ASSIGNMENT_STATEMENT
-          IDENTIFIER_DATA(c)
-          EXPRESSION(|)
-           EXPRESSION(>>)
-            EXPRESSION((null))
-             IDENTIFIER_DATA(a)
-            EXPRESSION((null))
-             NUMBER_DATA(1)
-           EXPRESSION(<<)
-            EXPRESSION((null))
-             IDENTIFIER_DATA(b)
-            EXPRESSION((null))
-             NUMBER_DATA(3)
-       STATEMENT
-        RETURN_STATEMENT
-         EXPRESSION((null))
-          NUMBER_DATA(0)
+  FUNCTION
+   IDENTIFIER_DATA(unary_minus_precedence)
+   (nil)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(a)
+       IDENTIFIER_DATA(b)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(a)
+      EXPRESSION(*)
+       EXPRESSION(-)
+        NUMBER_DATA(1)
+       NUMBER_DATA(2)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(b)
+      EXPRESSION(*)
+       EXPRESSION(-)
+        NUMBER_DATA(1)
+       NUMBER_DATA(2)
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(c)
+      EXPRESSION(|)
+       EXPRESSION(>>)
+        IDENTIFIER_DATA(a)
+        NUMBER_DATA(1)
+       EXPRESSION(<<)
+        IDENTIFIER_DATA(b)
+        NUMBER_DATA(3)
+     RETURN_STATEMENT
+      NUMBER_DATA(0)

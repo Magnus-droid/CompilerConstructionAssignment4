@@ -1,115 +1,116 @@
+(4.1) Simplified node of type: GLOBAL with child of type: FUNCTION
+(4.1) Simplified node of type: STATEMENT with child of type: BLOCK
+(4.1) Simplified node of type: STATEMENT with child of type: RETURN_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Flattened node of type: ARGUMENT_LIST with child of type: EXPRESSION_LIST
+(4.2) Merged children of node (type: GLOBAL_LIST) and other child of parent into parent node of type: GLOBAL_LIST
+(4.1) Simplified node of type: GLOBAL with child of type: FUNCTION
+(4.2) Flattened node of type: PARAMETER_LIST with child of type: VARIABLE_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: BLOCK
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: WHILE_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: IF_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
+(4.1) Simplified node of type: STATEMENT with child of type: BLOCK
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.2) Flattened node of type: ARGUMENT_LIST with child of type: EXPRESSION_LIST
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: ASSIGNMENT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.2) Flattened node of type: ARGUMENT_LIST with child of type: EXPRESSION_LIST
+(4.1) Simplified node of type: STATEMENT with child of type: PRINT_STATEMENT
+(4.1) Simplified node of type: PRINT_ITEM with child of type: EXPRESSION
+(4.2) Merged children of node (type: PRINT_LIST) and other child of parent into parent node of type: PRINT_LIST
+(4.1) Simplified node of type: PRINT_ITEM with child of type: STRING_DATA
+Changed PRINT_LIST to PRINT_STATEMENT
+(4.2) Merged children of node (type: STATEMENT_LIST) and other child of parent into parent node of type: STATEMENT_LIST
+(4.1) Simplified node of type: PRINT_STATEMENT with child of type: PRINT_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: IDENTIFIER_DATA
+(4.1) Simplified node of type: STATEMENT with child of type: RETURN_STATEMENT
+(4.1) Simplified node of type: EXPRESSION with child of type: NUMBER_DATA
  PROGRAM
  GLOBAL_LIST
-  GLOBAL_LIST
-   GLOBAL
-    FUNCTION
-     IDENTIFIER_DATA(main)
-     (nil)
-     STATEMENT
-      BLOCK
-       STATEMENT_LIST
-        STATEMENT
-         RETURN_STATEMENT
-          EXPRESSION((null))
-           IDENTIFIER_DATA(factor)
-           ARGUMENT_LIST
-            EXPRESSION_LIST
-             EXPRESSION((null))
-              NUMBER_DATA(1836311903)
-  GLOBAL
-   FUNCTION
-    IDENTIFIER_DATA(factor)
-    PARAMETER_LIST
-     VARIABLE_LIST
-      IDENTIFIER_DATA(n)
-    STATEMENT
-     BLOCK
-      DECLARATION_LIST
-       DECLARATION
-        VARIABLE_LIST
+  FUNCTION
+   IDENTIFIER_DATA(main)
+   (nil)
+   BLOCK
+    STATEMENT_LIST
+     RETURN_STATEMENT
+      EXPRESSION((null))
+       IDENTIFIER_DATA(factor)
+       EXPRESSION_LIST
+        NUMBER_DATA(1836311903)
+  FUNCTION
+   IDENTIFIER_DATA(factor)
+   VARIABLE_LIST
+    IDENTIFIER_DATA(n)
+   BLOCK
+    DECLARATION_LIST
+     DECLARATION
+      VARIABLE_LIST
+       IDENTIFIER_DATA(f)
+    STATEMENT_LIST
+     ASSIGNMENT_STATEMENT
+      IDENTIFIER_DATA(f)
+      EXPRESSION(/)
+       IDENTIFIER_DATA(n)
+       NUMBER_DATA(2)
+     WHILE_STATEMENT
+      RELATION(>)
+       EXPRESSION(-)
+        IDENTIFIER_DATA(n)
+        EXPRESSION(*)
          IDENTIFIER_DATA(f)
-      STATEMENT_LIST
+         EXPRESSION(/)
+          IDENTIFIER_DATA(n)
+          IDENTIFIER_DATA(f)
+       NUMBER_DATA(0)
+      ASSIGNMENT_STATEMENT
+       IDENTIFIER_DATA(f)
+       EXPRESSION(-)
+        IDENTIFIER_DATA(f)
+        NUMBER_DATA(1)
+     IF_STATEMENT
+      RELATION(>)
+       IDENTIFIER_DATA(f)
+       NUMBER_DATA(1)
+      BLOCK
+       DECLARATION_LIST
+        DECLARATION
+         VARIABLE_LIST
+          IDENTIFIER_DATA(r)
        STATEMENT_LIST
-        STATEMENT_LIST
-         STATEMENT_LIST
-          STATEMENT
-           ASSIGNMENT_STATEMENT
-            IDENTIFIER_DATA(f)
-            EXPRESSION(/)
-             EXPRESSION((null))
-              IDENTIFIER_DATA(n)
-             EXPRESSION((null))
-              NUMBER_DATA(2)
-         STATEMENT
-          WHILE_STATEMENT
-           RELATION(>)
-            EXPRESSION(-)
-             EXPRESSION((null))
-              IDENTIFIER_DATA(n)
-             EXPRESSION(*)
-              EXPRESSION((null))
-               IDENTIFIER_DATA(f)
-              EXPRESSION(/)
-               EXPRESSION((null))
-                IDENTIFIER_DATA(n)
-               EXPRESSION((null))
-                IDENTIFIER_DATA(f)
-            EXPRESSION((null))
-             NUMBER_DATA(0)
-           STATEMENT
-            ASSIGNMENT_STATEMENT
-             IDENTIFIER_DATA(f)
-             EXPRESSION(-)
-              EXPRESSION((null))
-               IDENTIFIER_DATA(f)
-              EXPRESSION((null))
-               NUMBER_DATA(1)
-        STATEMENT
-         IF_STATEMENT
-          RELATION(>)
-           EXPRESSION((null))
-            IDENTIFIER_DATA(f)
-           EXPRESSION((null))
-            NUMBER_DATA(1)
-          STATEMENT
-           BLOCK
-            DECLARATION_LIST
-             DECLARATION
-              VARIABLE_LIST
-               IDENTIFIER_DATA(r)
-            STATEMENT_LIST
-             STATEMENT_LIST
-              STATEMENT
-               ASSIGNMENT_STATEMENT
-                IDENTIFIER_DATA(r)
-                EXPRESSION((null))
-                 IDENTIFIER_DATA(factor)
-                 ARGUMENT_LIST
-                  EXPRESSION_LIST
-                   EXPRESSION((null))
-                    IDENTIFIER_DATA(f)
-             STATEMENT
-              ASSIGNMENT_STATEMENT
-               IDENTIFIER_DATA(r)
-               EXPRESSION((null))
-                IDENTIFIER_DATA(factor)
-                ARGUMENT_LIST
-                 EXPRESSION_LIST
-                  EXPRESSION(/)
-                   EXPRESSION((null))
-                    IDENTIFIER_DATA(n)
-                   EXPRESSION((null))
-                    IDENTIFIER_DATA(f)
-          STATEMENT
-           PRINT_STATEMENT
-            PRINT_LIST
-             PRINT_LIST
-              PRINT_ITEM
-               EXPRESSION((null))
-                IDENTIFIER_DATA(n)
-             PRINT_ITEM
-              STRING_DATA("is a prime factor")
-       STATEMENT
-        RETURN_STATEMENT
+        ASSIGNMENT_STATEMENT
+         IDENTIFIER_DATA(r)
          EXPRESSION((null))
-          NUMBER_DATA(0)
+          IDENTIFIER_DATA(factor)
+          EXPRESSION_LIST
+           IDENTIFIER_DATA(f)
+        ASSIGNMENT_STATEMENT
+         IDENTIFIER_DATA(r)
+         EXPRESSION((null))
+          IDENTIFIER_DATA(factor)
+          EXPRESSION_LIST
+           EXPRESSION(/)
+            IDENTIFIER_DATA(n)
+            IDENTIFIER_DATA(f)
+      PRINT_STATEMENT
+       IDENTIFIER_DATA(n)
+       STRING_DATA("is a prime factor")
+     RETURN_STATEMENT
+      NUMBER_DATA(0)

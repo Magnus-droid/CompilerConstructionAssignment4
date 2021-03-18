@@ -8,7 +8,7 @@ int
 main ( int argc, char **argv )
 {
     yyparse();
-    simplify_tree ( &root, root );
+    simplify_tree ( root, NULL );
     node_print ( root, 0 );
     destroy_subtree ( root );
 }
